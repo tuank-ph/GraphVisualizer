@@ -49,10 +49,10 @@
     <div id="codePreviewContainer">
       <div id="codePreviewWindow" >
         <div id="codePreviewButtonGroup">
-          <button>
+          <button onclick="codePreviewCopy()">
             Copy
           </button>
-          <button onclick="document.getElementById('codePreviewContainer').style.visibility = 'hidden'">
+          <button onclick="closeCodePreviewWindow()">
             Close
           </button>
         </div>
@@ -185,31 +185,6 @@ int main() {
         </div>
       </div>
     </div>
-
-<!--      <div class="main-content">-->
-<!--        <div class="visualizer">-->
-<!--          <div class="controls">-->
-<!--            <input type="number" id="nodeValue" placeholder="Enter node value" />-->
-<!--            <button id="insertBtn">Insert Node</button>-->
-<!--            <button id="deleteBtn">Delete Node</button>-->
-<!--            <button id="findBtn">Find Node</button>-->
-<!--            <br />-->
-<!--            <input type="number" id="randomCount" placeholder="Enter node count" />-->
-<!--            <button id="generateRandomTreeBtn">Create Random Tree</button>-->
-<!--          </div>-->
-
-<!--          <div id="stepsContainer" class="steps-container"></div>-->
-
-<!--          <div class="canvas-container">-->
-<!--              -->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="cpp-code">-->
-<!--        <h2>C++ Code</h2>-->
-<!--        <pre id="cppCodeContainer"></pre>-->
-<!--      </div>-->
-
     <script src="bstVisualizer.js"></script>
   </body>
 </html>

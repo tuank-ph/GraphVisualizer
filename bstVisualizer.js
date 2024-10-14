@@ -579,3 +579,13 @@ window.addEventListener("load", () => {
     resize();
 });
 
+function closeCodePreviewWindow() {
+    const codePreviewWindow = document.getElementById('codePreviewContainer');
+    codePreviewWindow.style.visibility = 'hidden';
+}
+
+function codePreviewCopy() {
+    const copyText = document.getElementById("codePreview");
+    navigator.clipboard.writeText(copyText.innerText);
+    alert("Code copied to clipboard");
+}
