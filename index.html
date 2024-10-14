@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary Search Tree Visualization</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="treeCanvas" width="0" height="0"></canvas>
+    <div id="credit">
+      <h1>BINARY SEARCH TRIE</h1>
+      <h2 style="margin-bottom: 10px">NHÓM 3</h2>
+      <h4>Phạm Tuấn Khanh
+        Trần Gia Huy
+        Lê Nguyễn Minh Khôi <span style="font-weight: bold; color: dodgerblue">HSGQG</span>
+        Nguyễn Lê Thái Dương
+        Đoàn Thiên An
+      </h4>
+    </div>
+    <div id="ui">
+      <div class="controls">
+        <div id="generateTree">
+          <button id="generateRandomTreeBtn">Generate tree</button>
+          <p>Nodes:</p>
+          <input type="number" id="randomCount" value="10"/>
+        </div>
+        <div>
+          <p>Target node:</p>
+          <input type="number" id="nodeValue"/>
+        </div>
+        <div>
+          <button id="insertBtn">Insert</button>
+          <button id="deleteBtn">Delete</button>
+          <button id="findBtn">Find</button>
+        </div>
+      </div>
+      <div id="nodeNotFoundNotification" data-status="">
+        Example: Node 13 not found
+      </div>
+      <div id="codeDiv">
+        <div class="cpp-code">
+          <pre id="cppCodeContainer"></pre>
+          <p id="fullCodeNotice">This is a simplified code, <span id="codePreviewOpen" onclick="document.getElementById('codePreviewContainer').style.visibility = 'visible'">click here</span> to view a fully working C++ code</p>
+        </div>
+        <div id="stepsContainer" class="steps-container"></div>
+      </div>
+    </div>
+    <div id="codePreviewContainer">
+      <div id="codePreviewWindow" >
+        <div id="codePreviewButtonGroup">
+          <button>
+            Copy
+          </button>
+          <button onclick="document.getElementById('codePreviewContainer').style.visibility = 'hidden'">
+            Close
+          </button>
+        </div>
+        <div class="" id="codePreview">#include &lt;bits/stdc++.h>
+#define ll long long
+
+using namespace std;
+
+class Node {
+public:
+    int value;
+    Node* left;
+    Node* right;
+
+    Node(int val) : value(val), left(nullptr), right(nullptr) {}
+};
+
+Node* insert(Node* node, int newValue) {
+    if (node == nullptr) {
+        return new Node(newValue);
+    }
+
+    if (newValue < node->value) {
+        node->left = insert(node->left, newValue);
+    } else if (newValue > node->value) {
+        node->right = insert(node->right, newValue);
+    }
+
+    return node;
+}
+
+Node* minValueNode(Node* node) {
+    Node* current = node;
+    while (current && current->left != nullptr) {
+        current = current->left;
+    }
+    return current;
+}
+
+Node* deleteNode(Node* node, int value) {
+    if (node == nullptr) return node;
+
+    if (value < node->value) {
+        node->left = deleteNode(node->left, value);
+    } else if (value > node->value) {
+        node->right = deleteNode(node->right, value);
+    } else {
+        if (node->left == nullptr && node->right == nullptr) {
+            delete node;
+            return nullptr;
+        }
+        if (node->left == nullptr) {
+            Node* temp = node->right;
+            delete node;
+            return temp;
+        }
+        if (node->right == nullptr) {
+            Node* temp = node->left;
+            delete node;
+            return temp;
+        }
+        Node* successor = minValueNode(node->right);
+        node->value = successor->value;
+        node->right = deleteNode(node->right, successor->value);
+    }
+
+    return node;
+}
+
+Node* findNode(Node* node, int value) {
+    if (node == nullptr || node->value == value) {
+        return node;
+    }
+
+    if (value < node->value) {
+        return findNode(node->left, value);
+    } else {
+        return findNode(node->right, value);
+    }
+}
+
+void inorderTraversal(Node* node) {
+    if (node == nullptr) return;
+
+    inorderTraversal(node->left);
+    cout << node->value << " ";
+    inorderTraversal(node->right);
+}
+
+void printInOrder(Node* root) {
+    if (root == nullptr) {
+        cout << "The tree is empty.\n";
+    } else {
+        cout << "In-order traversal of the tree: ";
+        inorderTraversal(root);
+        cout << '\n';
+    }
+}
+
+int main() {
+    Node* root = nullptr;
+
+    while (true) {
+        int type, value;
+        cout << "-----------------\n";
+        cout << "Which function do you want to use: \ninsert : 1 \ndelete : 2 \ncheck tree's nodes : 3 \nexit : 4\n";
+        cout << "-----------------\n";
+        cin >> type;
+
+        if (type == 1) {
+            cin >> value;
+            root = insert(root, value);
+            cout << "Successfully added " << value << '\n';
+        } else if (type == 2) {
+            cin >> value;
+            root = deleteNode(root, value);
+            cout << "Successfully deleted " << value << '\n';
+        } else if (type == 3) {
+            printInOrder(root);
+        } else if (type == 4) {
+            cout << "Exiting program.\n";
+            break;
+        } else {
+            cout << "Invalid option. Please try again.\n";
+        }
+    }
+
+    return 0;
+}
+        </div>
+      </div>
+    </div>
+
+<!--      <div class="main-content">-->
+<!--        <div class="visualizer">-->
+<!--          <div class="controls">-->
+<!--            <input type="number" id="nodeValue" placeholder="Enter node value" />-->
+<!--            <button id="insertBtn">Insert Node</button>-->
+<!--            <button id="deleteBtn">Delete Node</button>-->
+<!--            <button id="findBtn">Find Node</button>-->
+<!--            <br />-->
+<!--            <input type="number" id="randomCount" placeholder="Enter node count" />-->
+<!--            <button id="generateRandomTreeBtn">Create Random Tree</button>-->
+<!--          </div>-->
+
+<!--          <div id="stepsContainer" class="steps-container"></div>-->
+
+<!--          <div class="canvas-container">-->
+<!--              -->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="cpp-code">-->
+<!--        <h2>C++ Code</h2>-->
+<!--        <pre id="cppCodeContainer"></pre>-->
+<!--      </div>-->
+
+    <script src="bstVisualizer.js"></script>
+  </body>
+</html>

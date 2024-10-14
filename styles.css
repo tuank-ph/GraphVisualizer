@@ -1,0 +1,293 @@
+:root {
+    --background-color: #1e1f22;
+    --surface-color: #2b2d30;
+    --surface-color-alternative: #3d3f42;
+    --surface-color-hover: #2e436e;
+    --text-color: #f9f7f6;
+    --text-outline-color: #6F737A;
+    --color-accent: #3574f0;
+    --color-error: #f63D3B;
+
+
+    --node-background: #46484e;
+    --node-outline: #66686e;
+    --node-text: #f9f7f6;
+    --node-edge: #A6A8Ae;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "JetBrains Mono", monospace;
+    color: var(--text-color);
+    color-scheme: dark;
+}
+
+
+#ui {
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 20px);
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#codeDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    color-scheme: dark;
+    height: 95vh;
+    width: 40%;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    position: relative;
+    top: 1px;
+    background-color: var(--background-color);
+    font-style: italic;
+    border: solid 1px #5c5c5c;
+    border-radius: 4px;
+    padding: 5px 8px;
+    width: 40px;
+}
+input:focus {
+    outline: solid 2px var(--color-accent);
+}
+
+input:invalid {
+    outline: solid 2px var(--color-error);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  background-color: var(--surface-color-alternative);
+}
+
+button:hover {
+  background-color: var(--surface-color-hover);
+}
+
+#generateTree {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.button-command > span {
+    font-style: italic;
+    color: #7A737A;
+}
+
+.controls p {
+    color: var(--text-outline-color);
+    font-style: italic;
+}
+
+.controls > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+
+
+.status-text {
+  margin-top: 15px;
+  font-style: italic;
+  color: #555;
+}
+
+
+
+
+/*.step-container {*/
+/*    position: fixed;*/
+/*}*/
+
+#stepsContainer p {
+  background-color: var(--surface-color-hover);
+  padding: 8px;
+  border-left: 4px solid #3f51b5;
+  margin: 5px 0;
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+#stepsContainer {
+    font-style: italic;
+    color: #555;
+    font-size: .9em;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--surface-color);
+}
+
+
+.highlighted {
+  background-color: yellow;
+}
+
+.cpp-code {
+  background-color: var(--surface-color);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+#cppCodeContainer div {
+    white-space: pre;
+    line-height: 1.3;
+    font-size: .9em;
+    text-align: left;
+}
+
+#cppCodeContainer div.highlighted {
+  background-color: #5E5339;
+  font-weight: bold;
+  text-align: left;
+}
+
+
+
+
+#treeCanvas {
+  display: block;
+  background-color: var(--background-color);
+}
+body {
+    overflow-y: hidden;
+}
+body::-webkit-scrollbar {
+  /*width: 0;*/
+  /*height: 0;*/
+  /*background: transparent;*/
+
+}
+
+#credit {
+    position: fixed;
+    padding: 20px;
+    top: 0;
+}
+
+#credit > * {
+    color: var(--text-outline-color);
+    opacity: .6;
+    font-style: italic;
+    white-space: pre-line;
+}
+
+#nodeNotFoundNotification {
+    background-color: var(--surface-color);
+    padding: 20px 30px;
+    opacity: 0;
+
+}
+
+@-webkit-keyframes fade {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1;}
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1;}
+}
+
+
+#nodeNotFoundNotification[data-status="shown"] {
+    opacity: 1;
+    /*-webkit-animation: fade 4s;*/
+    /*animation: fade 4s;*/
+}
+
+#nodeNotFoundNotification[data-status="hidden"] {
+    opacity: 0;
+    -webkit-animation: fade 4s;
+    -webkit-animation-direction: reverse;
+    animation: fade 4s;
+    animation-direction: reverse;
+}
+
+#fullCodeNotice {
+    font-style: italic;
+    color: var(--text-outline-color);
+}
+
+#fullCodeNotice span {
+    cursor:pointer;
+    color: dodgerblue;
+    text-decoration:underline;
+}
+
+#codePreviewContainer {
+    visibility: hidden;
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.35);
+    top: 0;
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#codePreviewWindow {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 80%;
+    padding: 20px;
+    gap: 10px;
+
+    background-color: var(--background-color);
+
+}
+
+#codePreviewButtonGroup {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#codePreview {
+    flex-grow: 1;
+    white-space: pre;
+    overflow-y: scroll;
+    padding: 20px;
+    background-color: var(--surface-color);
+}
+
+
+/* d = DEBUG  show a green highligst */
+.d {
+    outline: #00FF00 solid 1px;
+}
