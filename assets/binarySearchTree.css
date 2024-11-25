@@ -1,37 +1,21 @@
-:root {
-    --background-color: #1e1f22;
-    --surface-color: #2b2d30;
-    --surface-color-alternative: #3d3f42;
-    --surface-color-hover: #2e436e;
-    --text-color: #f9f7f6;
-    --text-outline-color: #6F737A;
-    --color-accent: #3574f0;
-    --color-error: #f63D3B;
 
 
-    --node-background: #46484e;
-    --node-outline: #66686e;
-    --node-text: #f9f7f6;
-    --node-edge: #A6A8Ae;
+#credit, #ui, #codePreviewContainer {
+    /*visibility: hidden;*/
+
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "JetBrains Mono", monospace;
-    color: var(--text-color);
-    color-scheme: dark;
-}
+#credit { visibility: hidden; }
 
 
-#ui {
-    position: fixed;
-    bottom: 0;
-    width: calc(100% - 20px);
+
+#ui > div {
+    flex-grow: 1;
     display: flex;
     align-items: end;
     justify-content: space-between;
-    padding: 20px;
+    padding: 20px 0 20px 20px;
+    overflow-y: auto;
 }
 
 #codeDiv {
@@ -41,7 +25,7 @@
     overflow-x: hidden;
     overflow-y: scroll;
     color-scheme: dark;
-    height: 95vh;
+    max-height: 100%;
     width: 40%;
 }
 
@@ -122,12 +106,6 @@ button:hover {
 }
 
 
-
-
-/*.step-container {*/
-/*    position: fixed;*/
-/*}*/
-
 #stepsContainer p {
   background-color: var(--surface-color-hover);
   padding: 8px;
@@ -187,18 +165,7 @@ body::-webkit-scrollbar {
 
 }
 
-#credit {
-    position: fixed;
-    padding: 20px;
-    top: 0;
-}
 
-#credit > * {
-    color: var(--text-outline-color);
-    opacity: .6;
-    font-style: italic;
-    white-space: pre-line;
-}
 
 #nodeNotFoundNotification {
     background-color: var(--surface-color);
@@ -247,7 +214,7 @@ body::-webkit-scrollbar {
 
 #codePreviewContainer {
     visibility: hidden;
-    z-index: 99;
+    z-index: 1;
     position: fixed;
     width: 100%;
     height: 100%;

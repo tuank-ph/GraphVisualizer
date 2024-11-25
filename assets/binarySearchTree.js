@@ -1,8 +1,6 @@
 function getColor(cssVariableName) {
     const rootStyles = getComputedStyle(document.querySelector(':root'));
-    const color = rootStyles.getPropertyValue('--' + cssVariableName);
-
-    return color;
+    return rootStyles.getPropertyValue('--' + cssVariableName);
 }
 
 const SPEED = 200;
@@ -400,7 +398,7 @@ class BinarySearchTree {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         const levelDistance = 50;
         const horizontalSpacing = GLOBAL_NODE_COUNT * 8;
-        this.drawTree(ctx, this.root, canvas.width / 2, 50, levelDistance, horizontalSpacing);
+        this.drawTree(ctx, this.root, canvas.width / 2, 125, levelDistance, horizontalSpacing);
     }
 }
 
@@ -436,8 +434,6 @@ function resize() {
     bst.redrawTree(ctx, canvas);
 }
 
-console.log(getColor('node-background'))
-
 // Window load event to initialize elements
 const canvas = document.getElementById("treeCanvas");
 
@@ -447,7 +443,7 @@ const bst = new BinarySearchTree();
 
 
 const stepsContainer = document.getElementById("stepsContainer");
-
+    
 function addStep(step) {
     const stepElement = document.createElement("p");
     stepElement.innerText = step;
@@ -586,6 +582,8 @@ function closeCodePreviewWindow() {
 
 function codePreviewCopy() {
     const copyText = document.getElementById("codePreview");
-    navigator.clipboard.writeText(copyText.innerText);
-    alert("Code copied to clipboard");
+    navigator.clipboard.writeText(copyText.innerText).then(r =>
+        alert("Code copied to clipboard")
+    );
+
 }

@@ -3,10 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/assets/home.css" />
-    <link rel="stylesheet" href="/assets/default-styles.css">
+<!--    <link rel="stylesheet" href="/assets/home.css" />-->
+<!--    <link rel="stylesheet" href="/assets/default-styles.css">-->
+    <style>
+
+      @import url("https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css");
+
+:root {
+    --background-color: #1e1f22;
+    --surface-color: #2b2d30;
+    --surface-color-alternative: #3d3f42;
+    --surface-color-hover: #2e436e;
+    --text-color: #f9f7f6;
+    --text-outline-color: #6F737A;
+    --color-accent: #3574f0;
+    --color-error: #f63D3B;
+
+
+    --node-background: #46484e;
+    --node-outline: #66686e;
+    --node-text: #f9f7f6;
+    --node-edge: #A6A8Ae;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "JetBrains Mono", monospace;
+    color: var(--text-color);
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+
+
+#ui {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    /*width: calc(100% - 20px);*/
+    pointer-events: none;
+}
+
+#ui > * {
+    pointer-events: auto;
+}
+
+nav {
+    background-color: var(--surface-color-alternative);
+    display: flex;
+    padding: 8px 8px 0;
+    gap: 12px;
+}
+
+nav > .tab {
+    display: flex;
+    gap: 10px;
+    padding: 10px 15px 8px;
+    text-decoration: none;
+}
+
+nav > .tab.active {
+    background-color: var(--background-color);
+    border-radius: 8px 8px 0 0;
+}
+
+i {
+    display: flex;
+    align-items: center;
+}
+
+select {
+    background-color: var(--surface-color-alternative);
+    border-radius: 5px;
+    padding: 5px 8px;
+    border: 1.5px solid #5f5e5e;
+    font-style: italic;
+}
+
+select:focus{
+    outline: none;
+}
+
+
+
+        #theory-container {
+    width: 800px;
+    margin: 0 auto 0;
+    padding: 20px;
+}
+
+#credit {
+    width: 800px;
+    padding: 20px;
+    margin-top: 70px;
+}
+
+#credit > * {
+    color: var(--text-outline-color);
+    opacity: .6;
+    font-style: italic;
+    white-space: pre-line;
+}
+
+#credit > h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#theory-container p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+ul, ol {
+    margin-left: 40px;
+    margin-bottom: 15px;
+}
+
+code {
+    background-color: var(--surface-color);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+pre.code-block {
+    background-color: var(--surface-color);
+    padding: 15px;
+    overflow-x: auto;
+    border-left: 4px solid #ccc;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.image-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.image-container p {
+    margin-top: 5px;
+    font-style: italic;
+    /*color: #666666;*/
+}
+
+@media screen and (max-width: 600px) {
+    #theory-container {
+        padding: 10px;
+    }
+}
+
+
+
+
+    </style>
 </head>
 <body>
+
 
     <div id="credit">
         <h1>BINARY SEARCH TREE</h1>
@@ -24,53 +201,33 @@
         <h1>Cơ sở lý thuyết</h1>
 
         <h2>Giới thiệu về đường đi và chu trình Euler</h2>
-        <p>Đường đi Euler là một đường đi trên đồ thị (vô hướng/có hướng) đi qua tất cả các cạnh đúng chính xác 1 lần duy nhất. Trong hình 1.1, một đường đi Euler là: 0-1-2-0-3-4:</p>
+        <p>Đường đi Euler là một đường đi trên đồ thị (vô hướng/có hướng) đi qua tất cả các cạnh đúng chính xác 1 lần duy nhất. Trong hình 1, đường đi Euler là: 0-1-2-0-3-4.</p>
         <!-- Image -->
         <div class="image-container">
-            <img src="/assets/home-images/pic1.png" alt="Hình 1.1: Đường đi Euler có hướng">
-            <p><strong>Hình 1.1:</strong> Đường đi Euler (đồ thị có hướng)</p>
-        </div>
-        <p>Trong hình 1.2, một đường đi Euler là: 0-1-2-3:</p>
-        <div class="image-container">
-            <img src="/assets/home-images/pic5.jpg" alt="Hình 1.2: Đường đi Euler vô hướng">
-            <p><strong>Hình 1.2:</strong> Đường đi Euler (đồ thị vô hướng)</p>
+            <img src="/assets/home-images/pic1.png" alt="Hình 1: Đường đi Euler">
+            <p><strong>Hình 1:</strong> Đường đi Euler</p>
         </div>
 
-        <p>Chu trình Euler là một đường đi Euler trên đồ thị (vô hướng/có hướng) thỏa mãn điểm đầu và điểm kết thúc đều cùng là một đỉnh. Trong hình 2.1, một chu trình Euler là: 0-1-2-0-3-4-0:</p>
+        <p>Chu trình Euler là một đường đi Euler trên đồ thị (vô hướng/có hướng) thỏa mãn điểm đầu và điểm kết thúc đều cùng là một đỉnh. Trong hình 2, chu trình Euler là: 0-1-2-0-3-4-0.</p>
         <!-- Image -->
         <div class="image-container">
-            <img src="/assets/home-images/pic2.png" alt="Hình 2.1: Chu trình Euler có hướng">
-            <p><strong>Hình 2.1:</strong> Chu trình Euler (đồ thị có hướng)</p>
-        </div>
-        <p>Trong hình 2.2, một chu trình Euler là: 0-1-2-3-0:</p>
-        <div class="image-container">
-            <img src="/assets/home-images/pic6.jpg" alt="Hình 2.2: Chu trình Euler vô hướng">
-            <p><strong>Hình 2.2:</strong> Chu trình Euler (đồ thị có hướng)</p>
+            <img src="/assets/home-images/pic2.png" alt="Hình 2: Chu trình Euler">
+            <p><strong>Hình 2:</strong> Chu trình Euler</p>
         </div>
 
         <h2>Giới thiệu về đường đi và chu trình Hamilton</h2>
-        <p>Đường đi Hamilton khác một chút so với đường đi Euler, là một đường đi trên đồ thị (vô hướng/có hướng) đi qua tất cả các đỉnh đúng chính xác 1 lần duy nhất. Trong hình 3.1, một đường đi Hamilton là: 0-1-5-2-3-4:</p>
+        <p>Đường đi Hamilton tương tự như đường đi Euler, là một đường đi trên đồ thị (vô hướng/có hướng) đi qua tất cả các đỉnh đúng chính xác 1 lần duy nhất. Trong hình 3, đường đi Hamilton là: 0-1-5-2-3-4.</p>
         <!-- Image -->
         <div class="image-container">
-            <img src="/assets/home-images/pic3.png" alt="Hình 3.1: Đường đi Hamilton có hướng">
-            <p><strong>Hình 3.1:</strong> Đường đi Hamilton (đồ thị có hướng)</p>
-        </div>
-        <p>Trong hình 3.2, một đường đi Hamilton là: 3-0-2-1:</p>
-        <div class="image-container">
-            <img src="/assets/home-images/pic7.jpg" alt="Hình 3.1: Đường đi Hamilton vô hướng">
-            <p><strong>Hình 3.2:</strong> Đường đi Hamilton (đồ thị vô hướng)</p>
+            <img src="/assets/home-images/pic3.png" alt="Hình 3: Đường đi Hamilton">
+            <p><strong>Hình 3:</strong> Đường đi Hamilton</p>
         </div>
 
-        <p>Chu trình Hamilton tương tự vậy, cũng là một đường đi Hamilton trên đồ thị (vô hướng/có hướng) nhưng thỏa mãn điều kiện xuất phát và kết thúc cùng 1 điểm, ở đây là điểm 0. Trong hình 4.1, một chu trình Hamilton là: 0-1-5-2-3-4-0:</p>
+        <p>Chu trình Hamilton tương tự vậy, cũng là một đường đi Hamilton trên đồ thị (vô hướng/có hướng) nhưng thỏa mãn điều kiện xuất phát và kết thúc cùng 1 điểm, ở đây là điểm 0. Trong hình 4, chu trình Hamilton là: 0-1-5-2-3-4-0.</p>
         <!-- Image -->
         <div class="image-container">
-            <img src="/assets/home-images/pic4.png" alt="Hình 4.1: Chu trình Hamilton">
-            <p><strong>Hình 4.1:</strong> Chu trình Hamilton (đồ thị có hướng)</p>
-        </div>
-        <p>Trong hình 4.2, một chu trình Hamilton là: 3-0-2-1:</p>
-        <div class="image-container">
-            <img src="/assets/home-images/pic8.jpg" alt="Hình 4.2: Chu trình Hamilton">
-            <p><strong>Hình 4.2:</strong> Chu trình Hamilton (đồ thị vô hướng)</p>
+            <img src="/assets/home-images/pic4.png" alt="Hình 4: Chu trình Hamilton">
+            <p><strong>Hình 4:</strong> Chu trình Hamilton</p>
         </div>
 
         <h1>Các thuật toán tìm kiếm đường đi & chu trình Euler/Hamilton</h1>
@@ -106,7 +263,7 @@
         </ol>
         <p><strong>Đầu ra:</strong> Một danh sách các đỉnh theo thứ tự đi của chu trình/đường đi Euler.</p>
 
-        <h4>Code minh họa (có hướng)</h4>
+        <h4>Code minh họa</h4>
         <pre class="code-block"><code>
 void findEulerian(int startNode) {
     stack&lt;int&gt; currPath;
@@ -118,28 +275,6 @@ void findEulerian(int startNode) {
         if (!adj[current].empty()) {
             int next = adj[current].back();
             adj[current].pop_back();
-            currPath.push(next);
-        } else {
-            circuit.push_back(current);
-            currPath.pop();
-        }
-    }
-
-    reverse(circuit.begin(), circuit.end());
-}
-        </code></pre>
-
-        <h4>Code minh họa (vô hướng)</h4>
-        <pre class="code-block"><code>
-void findEulerian(int startNode) {
-    stack&lt;int&gt; currPath;
-    currPath.push(startNode);
-    while (!currPath.empty()) {
-        int current = currPath.top();
-        if (!adj[current].empty()) {
-            int next = adj[current].back();
-            adj[current].pop_back();
-            adj[next].erase(find(adj[next].begin(), adj[next].end(), current));
             currPath.push(next);
         } else {
             circuit.push_back(current);
@@ -350,6 +485,7 @@ int main() {
         </nav>
     </div>
 
-<!--  <object type="text/html" data="/pages/BinarySearchTree/index.html" ></object>-->
+<!--    CONTINUE WRITE NEW CONTENT HERE. DO NOT ADD MORE CSS, STICK WITH THE CURRENT STYLE. ADD ONLY CONTENT TO HTML-->
+
 </body>
 </html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Euler - Hamilton Path</title>
+    <link rel="stylesheet" href="/assets/eulerHamilton.css" />
+    <link rel="stylesheet" href="/assets/default-styles.css">
+
+</head>
+<body>
+<!--    <nav>-->
+<!--        <a class="tab" href="./index.html"><i class="fi fi-rs-sparkles"></i><p>Welcome</p></a>-->
+<!--        <a class="tab" href="./binarySearchTree.html"><i class="fi fi-rs-chart-tree"></i><p>Binary Search Tree</p></a>-->
+<!--        <a class="tab active" href="./eulerHamilton.html"><i class="fi fi-rs-chart-network"></i><p>Euler / Hamilton</p></a>-->
+<!--    </nav>-->
+
+
+
+    <canvas id="graph-canvas"></canvas>
+    <div id="ui">
+        <nav>
+            <a class="tab" href="./index.html"><i class="fi fi-rs-sparkles"></i><p>Documentation</p></a>
+            <a class="tab" href="./binarySearchTree.html"><i class="fi fi-rs-chart-tree"></i><p>Binary Search Tree</p></a>
+            <a class="tab active" href="./eulerHamilton.html"><i class="fi fi-rs-chart-network"></i><p>Euler / Hamilton</p></a>
+        </nav>
+        <div>
+            <div class="controls">
+                <h3>Random Graph</h3>
+                <div>
+                    <label for="graph-direction">Graph Direction:</label>
+                    <select id="graph-direction">
+                        <option value="undirected">Undirected</option>
+                        <option value="directed">Directed</option>
+                    </select>
+                </div>
+                <button id="generate-graph-random">Generate Graph</button>
+
+                <h3>Predefined Graph</h3>
+                <div>
+                    <label for="predefined-graph-select">Select Graph:</label>
+                    <select id="predefined-graph-select">
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+                <button id="generate-graph-predefined">Generate Graph</button>
+
+                <h3>Commands</h3>
+                <div>
+                    <label for="mode">Mode:</label>
+                    <select id="mode">
+                        <option value="eulerian">Eulerian</option>
+                        <option value="hamiltonian">Hamiltonian</option>
+                    </select>
+                    <select id="path-circuit">
+                        <option value="path">Path</option>
+                        <option value="circuit">Circuit</option>
+                    </select>
+                </div>
+                <div>
+                    <button id="start-algorithm">Start</button>
+                    <button id="reset-graph">Reset Graph</button>
+                </div>
+
+            </div>
+            <div id="status-container">
+                <div id="steps-container">
+<!--                    <h2>Algorithm Steps</h2>-->
+                    <pre id="steps-display"></pre>
+                </div>
+                <div id="code-container">
+<!--                    <h2>Algorithm Code</h2>-->
+                    <pre id="code-display">
+            <!-- Algorithm code will be inserted here -->
+                    </pre>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!-- ... main content ... -->
+    <div class="main-content">
+        <div id="algorithm-container">
+
+        </div>
+    </div>
+
+
+    <script src="/assets/eulerHamilton.js"></script>
+<!--  <object type="text/html" data="/pages/BinarySearchTree/index.html" ></object>-->
+</body>
+</html>
