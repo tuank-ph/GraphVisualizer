@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/assets/home.css" />
-    <link rel="stylesheet" href="/assets/default-styles.css">
+    <link rel="stylesheet" href="./assets/home.css" />
+    <link rel="stylesheet" href="./assets/default-styles.css">
 </head>
 <body>
 
@@ -27,24 +27,24 @@
         <p>Đường đi Euler là một đường đi trên đồ thị (vô hướng/có hướng) đi qua tất cả các cạnh đúng chính xác 1 lần duy nhất. Trong hình 1.1, một đường đi Euler là: 0-1-2-0-3-4:</p>
         <!-- Image -->
         <div class="image-container">
-            <img src="/assets/home-images/pic1.png" alt="Hình 1.1: Đường đi Euler có hướng">
+            <img src="./assets/home-images/pic1.png" alt="Hình 1.1: Đường đi Euler có hướng">
             <p><strong>Hình 1.1:</strong> Đường đi Euler (đồ thị có hướng)</p>
         </div>
         <p>Trong hình 1.2, một đường đi Euler là: 0-1-2-3:</p>
         <div class="image-container">
-            <img src="/assets/home-images/pic5.jpg" alt="Hình 1.2: Đường đi Euler vô hướng">
+            <img src="./assets/home-images/pic5.jpg" alt="Hình 1.2: Đường đi Euler vô hướng">
             <p><strong>Hình 1.2:</strong> Đường đi Euler (đồ thị vô hướng)</p>
         </div>
 
         <p>Chu trình Euler là một đường đi Euler trên đồ thị (vô hướng/có hướng) thỏa mãn điểm đầu và điểm kết thúc đều cùng là một đỉnh. Trong hình 2.1, một chu trình Euler là: 0-1-2-0-3-4-0:</p>
         <!-- Image -->
         <div class="image-container">
-            <img src="/assets/home-images/pic2.png" alt="Hình 2.1: Chu trình Euler có hướng">
+            <img src="./assets/home-images/pic2.png" alt="Hình 2.1: Chu trình Euler có hướng">
             <p><strong>Hình 2.1:</strong> Chu trình Euler (đồ thị có hướng)</p>
         </div>
         <p>Trong hình 2.2, một chu trình Euler là: 0-1-2-3-0:</p>
         <div class="image-container">
-            <img src="/assets/home-images/pic6.jpg" alt="Hình 2.2: Chu trình Euler vô hướng">
+            <img src="./assets/home-images/pic6.jpg" alt="Hình 2.2: Chu trình Euler vô hướng">
             <p><strong>Hình 2.2:</strong> Chu trình Euler (đồ thị có hướng)</p>
         </div>
 
@@ -52,24 +52,24 @@
         <p>Đường đi Hamilton khác một chút so với đường đi Euler, là một đường đi trên đồ thị (vô hướng/có hướng) đi qua tất cả các đỉnh đúng chính xác 1 lần duy nhất. Trong hình 3.1, một đường đi Hamilton là: 0-1-5-2-3-4:</p>
         <!-- Image -->
         <div class="image-container">
-            <img src="/assets/home-images/pic3.png" alt="Hình 3.1: Đường đi Hamilton có hướng">
+            <img src="./assets/home-images/pic3.png" alt="Hình 3.1: Đường đi Hamilton có hướng">
             <p><strong>Hình 3.1:</strong> Đường đi Hamilton (đồ thị có hướng)</p>
         </div>
         <p>Trong hình 3.2, một đường đi Hamilton là: 3-0-2-1:</p>
         <div class="image-container">
-            <img src="/assets/home-images/pic7.jpg" alt="Hình 3.1: Đường đi Hamilton vô hướng">
+            <img src="./assets/home-images/pic7.jpg" alt="Hình 3.1: Đường đi Hamilton vô hướng">
             <p><strong>Hình 3.2:</strong> Đường đi Hamilton (đồ thị vô hướng)</p>
         </div>
 
         <p>Chu trình Hamilton tương tự vậy, cũng là một đường đi Hamilton trên đồ thị (vô hướng/có hướng) nhưng thỏa mãn điều kiện xuất phát và kết thúc cùng 1 điểm, ở đây là điểm 0. Trong hình 4.1, một chu trình Hamilton là: 0-1-5-2-3-4-0:</p>
         <!-- Image -->
         <div class="image-container">
-            <img src="/assets/home-images/pic4.png" alt="Hình 4.1: Chu trình Hamilton">
+            <img src="./assets/home-images/pic4.png" alt="Hình 4.1: Chu trình Hamilton">
             <p><strong>Hình 4.1:</strong> Chu trình Hamilton (đồ thị có hướng)</p>
         </div>
         <p>Trong hình 4.2, một chu trình Hamilton là: 3-0-2-1:</p>
         <div class="image-container">
-            <img src="/assets/home-images/pic8.jpg" alt="Hình 4.2: Chu trình Hamilton">
+            <img src="./assets/home-images/pic8.jpg" alt="Hình 4.2: Chu trình Hamilton">
             <p><strong>Hình 4.2:</strong> Chu trình Hamilton (đồ thị vô hướng)</p>
         </div>
 
@@ -154,7 +154,7 @@ void findEulerian(int startNode) {
         <h2>Quay lui (Hamilton)</h2>
 
         <h3>Giới thiệu</h3>
-        <p>Khác với tìm kiếm chu trình hay đường đi Euler, hiện tại vẫn chưa có thuật toán nào tối ưu cho việc tìm kiếm đường đi và chu trình Hamilton. Vậy nên ở đây, chúng ta sẽ sử dụng quay lui hay backtracking với độ phức tạp O(V!) với V là số đỉnh của đồ thị.</p>
+        <p>Khác với tìm kiếm chu trình hay đường đi Euler, hiện tại vẫn chưa có thuật toán nào tối ưu cho việc tìm kiếm đường đi và chu trình Hamilton. Vậy nên ở đây, chúng ta sẽ sử dụng quay lui hay backtracking với độ phức tạp O(V.V!) với V là số đỉnh của đồ thị.</p>
         <p>Ý tưởng tổng quan: Duyệt qua tất cả các đỉnh làm đỉnh bắt đầu. Từ mỗi đỉnh này, duyệt qua các đỉnh liền kề với nó và tìm tất cả các con đường khả thi.</p>
 
         <h3>Thuật toán chi tiết</h3>
